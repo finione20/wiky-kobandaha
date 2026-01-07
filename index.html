@@ -3,73 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Wiky Kobandaha</title>
+  <title>Wiky Kobandaha | Futuristic Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    body, html { margin:0; padding:0; font-family: Arial, sans-serif; scroll-behavior: smooth; }
-    header { background: linear-gradient(135deg,#4e54c8,#8f94fb); height:100vh; color:white; display:flex;
-              flex-direction:column; justify-content:center; align-items:center; text-align:center; }
-    h1 { font-size:3rem; margin:0; animation: fadeIn 1.5s ease-in-out;}
-    p { font-size:1.2rem; margin-top:10px; animation: fadeIn 2s ease-in-out;}
-    @keyframes fadeIn { from { opacity:0; transform: translateY(20px);} to { opacity:1; transform:translateY(0);} }
-    section { padding:60px 20px; }
-    .skills, .projects { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-    .card { background:#fff; padding:20px; border-radius:8px; width:250px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-    .card h3 { margin-top:0; }
-    footer { text-align:center; padding:20px; background:#f1f1f1; }
+    :root {
+      --primary: #00e0ff;
+      --secondary: #ff00c8;
+      --bg-dark: #0a0a0f;
+      --text-light: #f9f9f9;
+      --glass: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] {
+      --bg-dark: #f9f9f9;
+      --text-light: #222;
+      --glass: rgba(255, 255, 255, 0.7);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      text-shadow: 0 0 15px var(--primary);
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    #typing {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    /* Floating lights background */
+    .light {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(var(--primary), transparent);
+      opacity: 0.15;
+      animation: float 10s infinite ease-in-out alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50px); }
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px var(--primary);
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 25px;
+      width: 260px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px var(--primary);
+    }
+
+    footer {
+      padding: 30px;
+      background: var(--glass);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Dark/Light Toggle */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--glass);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      color: var(--text-light);
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+      box-shadow: 0 0 10px var(--secondary);
+    }
+
+    /* Scroll animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.3rem; }
+      .card { width: 90%; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Wiky Kobandaha</h1>
-  <p>Mahasiswa Sistem Informasi | Budaya Digital & Kreasi 💻📌</p>
-  <a href="#about" style="margin-top:20px; color:white; font-weight:bold; text-decoration:none; border:2px solid white; padding:10px 20px; border-radius:25px;">Kenali Aku</a>
-</header>
+  <button id="theme-toggle" title="Toggle mode">🌙</button>
 
-<section id="about">
-  <h2>Tentang Aku</h2>
-  <p>
-    Halo! Saya <strong>Wiky Kobandaha</strong>, seorang mahasiswa Sistem Informasi dari Universitas Terbuka yang berfokus pada pengembangan digital dan konten kreatif. Saya memiliki semangat tinggi terhadap teknologi, desain, serta pembuatan solusi digital yang menarik dan interaktif. :contentReference[oaicite:3]{index=3}
-  </p>
-</section>
+  <header>
+    <div class="light" style="width:200px;height:200px;top:10%;left:15%;"></div>
+    <div class="light" style="width:300px;height:300px;bottom:10%;right:10%;animation-delay:2s;"></div>
 
-<section id="skills">
-  <h2>Keahlian</h2>
-  <div class="skills">
-    <div class="card"><h3>Web Development</h3><p>HTML, CSS, JavaScript</p></div>
-    <div class="card"><h3>UI/UX Design</h3><p>Desain Antarmuka & Pengalaman Pengguna</p></div>
-    <div class="card"><h3>Problem Solving</h3><p>Pemikiran Analitis & Logika</p></div>
-  </div>
-</section>
+    <h1>Wiky Kobandaha</h1>
+    <p id="typing"></p>
+  </header>
 
-<section id="projects">
-  <h2>Proyek & Pengalaman</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>Portofolio Interaktif</h3>
-      <p>Membuat portofolio dinamis dengan efek animasi & responsive.</p>
+  <section id="about" class="reveal">
+    <h2>Tentang Aku</h2>
+    <p>
+      Halo! Saya <strong>Wiky Kobandaha</strong>, seorang mahasiswa Sistem Informasi dari Universitas Terbuka yang berfokus pada teknologi digital, desain UI/UX, dan pengembangan web interaktif. Saya suka mengeksplorasi ide baru dan mengubahnya menjadi pengalaman digital yang bermanfaat dan menarik.
+    </p>
+  </section>
+
+  <section id="skills" class="reveal">
+    <h2>Keahlian</h2>
+    <div class="card-container">
+      <div class="card"><h3>Frontend Development</h3><p>HTML, CSS, JavaScript, Animasi Web</p></div>
+      <div class="card"><h3>UI/UX Design</h3><p>Desain antarmuka modern dan pengalaman pengguna intuitif</p></div>
+      <div class="card"><h3>Creative Content</h3><p>Pembuatan konten dan branding digital</p></div>
     </div>
-    <div class="card">
-      <h3>Proyek Digital Desa</h3>
-      <p>Keterlibatan dalam kegiatan dan pelayanan umum digital. :contentReference[oaicite:4]{index=4}</p>
+  </section>
+
+  <section id="projects" class="reveal">
+    <h2>Proyek</h2>
+    <div class="card-container">
+      <div class="card"><h3>Portofolio Interaktif</h3><p>Website pribadi dengan efek neon dan animasi.</p></div>
+      <div class="card"><h3>Desa Digital</h3><p>Partisipasi dalam digitalisasi pelayanan publik di Motabang.</p></div>
+      <div class="card"><h3>Eksperimen Teknologi</h3><p>Proyek mini eksplorasi interaktif dan visualisasi data.</p></div>
     </div>
-    <div class="card">
-      <h3>Pembelajaran TI</h3>
-      <p>Kegiatan akademik bidang Sistem Informasi.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <h2>Kontak</h2>
-  <p>Email: <a href="mailto:wiky@example.com">wiky@example.com</a></p>
-  <p>LinkedIn: <a href="#">linkedin.com/in/wiky-kobandaha</a></p>
-  <p>GitHub: <a href="#">github.com/wiky-kobandaha</a></p>
-</section>
+  <section id="contact" class="reveal">
+    <h2>Kontak</h2>
+    <p>Email: <a href="mailto:wiky@example.com" style="color:var(--secondary)">wiky@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/finione20" style="color:var(--primary)">github.com/finione20</a></p>
+    <p>LinkedIn: <a href="#" style="color:var(--primary)">linkedin.com/in/wiky-kobandaha</a></p>
+  </section>
 
-<footer>
-  &copy; 2026 Wiky Kobandaha — Semua hak cipta.
-</footer>
+  <footer>
+    © 2026 Wiky Kobandaha — Dibuat dengan 💙 dan efek neon futuristik.
+  </footer>
 
+  <script>
+    // Typing effect
+    const typingText = ["Mahasiswa Sistem Informasi", "Web Developer", "UI/UX Enthusiast", "Digital Creator"];
+    let count = 0, index = 0;
+    const typingElement = document.getElementById("typing");
+
+    function type() {
+      if (index < typingText[count].length) {
+        typingElement.textContent += typingText[count].charAt(index);
+        index++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (index > 0) {
+        typingElement.textContent = typingText[count].substring(0, index - 1);
+        index--;
+        setTimeout(erase, 50);
+      } else {
+        count = (count + 1) % typingText.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+
+    // Scroll reveal animation
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll(".reveal").forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.classList.add("active");
+      });
+    });
+
+    // Theme toggle
+    const toggleBtn = document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      const currentTheme = document.body.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        document.body.removeAttribute("data-theme");
+        toggleBtn.textContent = "🌙";
+      } else {
+        document.body.setAttribute("data-theme", "light");
+        toggleBtn.textContent = "☀️";
+      }
+    });
+  </script>
 </body>
 </html>
