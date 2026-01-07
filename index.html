@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wiky Kobandaha | Futuristic Portfolio</title>
+  <title>Wiky Kobandaha | Galaxy Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -26,8 +26,8 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
       font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -37,22 +37,33 @@
       position: relative;
     }
 
+    /* Galaxy Background */
+    canvas#stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(circle at 20% 20%, rgba(0,224,255,0.05), transparent 70%),
+                  radial-gradient(circle at 80% 80%, rgba(255,0,200,0.05), transparent 70%);
+    }
+
     /* Cursor Glow */
     .cursor-glow {
       position: fixed;
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       background: radial-gradient(circle, var(--primary), transparent 60%);
       border-radius: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%);
       mix-blend-mode: screen;
-      opacity: 0.4;
-      transition: transform 0.1s ease-out;
-      z-index: 9999;
+      opacity: 0.25;
+      transition: transform 0.2s ease;
+      z-index: 999;
     }
 
-    /* Header */
     header {
       height: 100vh;
       display: flex;
@@ -61,7 +72,6 @@
       align-items: center;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
     header h1 {
@@ -71,42 +81,12 @@
     }
 
     header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.3rem;
       color: var(--secondary);
       font-weight: 600;
       letter-spacing: 1px;
     }
 
-    /* Parallax layers */
-    .parallax {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(circle at center, rgba(0,224,255,0.05), transparent 70%),
-                  radial-gradient(circle at bottom right, rgba(255,0,200,0.05), transparent 70%);
-      transform: translateZ(0);
-      z-index: -1;
-    }
-
-    /* Floating lights */
-    .light {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(var(--primary), transparent);
-      opacity: 0.15;
-      animation: float 10s infinite ease-in-out alternate;
-      filter: blur(10px);
-    }
-
-    @keyframes float {
-      from { transform: translateY(0); }
-      to { transform: translateY(-60px); }
-    }
-
-    /* Sections */
     section {
       padding: 90px 20px;
       max-width: 1000px;
@@ -153,7 +133,7 @@
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Scroll animation */
+    /* Scroll Animation */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -164,7 +144,7 @@
       transform: translateY(0);
     }
 
-    /* Theme toggle */
+    /* Theme Toggle */
     #theme-toggle {
       position: fixed;
       top: 20px;
@@ -192,14 +172,11 @@
 </head>
 <body>
 
+  <canvas id="stars"></canvas>
   <div class="cursor-glow"></div>
   <button id="theme-toggle" title="Toggle mode">🌙</button>
 
   <header>
-    <div class="parallax" id="parallax"></div>
-    <div class="light" style="width:250px;height:250px;top:10%;left:10%;"></div>
-    <div class="light" style="width:350px;height:350px;bottom:5%;right:5%;animation-delay:3s;"></div>
-
     <h1>Wiky Kobandaha</h1>
     <p id="typing"></p>
   </header>
@@ -208,7 +185,7 @@
     <h2>Tentang Aku</h2>
     <p>
       Halo! Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka.  
-      Saya menyukai desain digital, pengembangan web, dan eksperimen interaktif yang menggabungkan estetika serta teknologi modern.
+      Saya menyukai desain digital, pengembangan web, dan eksplorasi interaktif yang memadukan estetika dengan teknologi masa depan.
     </p>
   </section>
 
@@ -224,9 +201,9 @@
   <section id="projects" class="reveal">
     <h2>Proyek</h2>
     <div class="card-container">
-      <div class="card"><h3>Portofolio Cinematic</h3><p>Website pribadi dengan efek neon, parallax, dan kursor glow.</p></div>
+      <div class="card"><h3>Portofolio Galaxy</h3><p>Website pribadi dengan efek neon, bintang, dan animasi halus.</p></div>
       <div class="card"><h3>Desa Digital</h3><p>Partisipasi dalam digitalisasi pelayanan publik di Motabang.</p></div>
-      <div class="card"><h3>Eksperimen Visual</h3><p>Membuat interaksi animasi dan visual efek di web modern.</p></div>
+      <div class="card"><h3>Eksperimen Visual</h3><p>Membuat animasi dan efek web sinematik modern.</p></div>
     </div>
   </section>
 
@@ -238,11 +215,11 @@
   </section>
 
   <footer>
-    © 2026 Wiky Kobandaha
+    © 2026 Wiky Kobandaha — Portofolio Galaxy Edition 🚀
   </footer>
 
   <script>
-    // Typing effect
+    // Typing Effect
     const typingText = ["Mahasiswa Sistem Informasi", "Web Developer", "UI/UX Enthusiast", "Digital Creator"];
     let count = 0, index = 0;
     const typingElement = document.getElementById("typing");
@@ -270,15 +247,15 @@
 
     document.addEventListener("DOMContentLoaded", type);
 
-    // Scroll reveal animation
+    // Scroll Reveal
     window.addEventListener("scroll", () => {
-      document.querySelectorAll(".reveal").forEach((el) => {
+      document.querySelectorAll(".reveal").forEach(el => {
         const top = el.getBoundingClientRect().top;
         if (top < window.innerHeight - 100) el.classList.add("active");
       });
     });
 
-    // Theme toggle
+    // Theme Toggle
     const toggleBtn = document.getElementById("theme-toggle");
     toggleBtn.addEventListener("click", () => {
       const theme = document.body.getAttribute("data-theme");
@@ -291,20 +268,48 @@
       }
     });
 
-    // Parallax movement
-    const parallax = document.getElementById("parallax");
-    document.addEventListener("mousemove", (e) => {
-      const x = (window.innerWidth / 2 - e.pageX) / 40;
-      const y = (window.innerHeight / 2 - e.pageY) / 40;
-      parallax.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-    });
-
-    // Cursor glow follow
+    // Cursor Glow
     const glow = document.querySelector(".cursor-glow");
     document.addEventListener("mousemove", (e) => {
       glow.style.left = e.pageX + "px";
       glow.style.top = e.pageY + "px";
     });
+
+    // Galaxy Star Background
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = Array.from({ length: 150 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.2,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: (Math.random() - 0.5) * 0.3,
+      }));
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = Math.random() > 0.5 ? "rgba(0,224,255,0.8)" : "rgba(255,0,200,0.6)";
+        ctx.fill();
+        s.x += s.dx;
+        s.y += s.dy;
+        if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+      });
+      requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    animateStars();
   </script>
 </body>
 </html>
