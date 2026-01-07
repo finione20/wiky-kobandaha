@@ -5,22 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wiky Kobandaha | Futuristic Portfolio</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary: #00e0ff;
       --secondary: #ff00c8;
-      --bg-dark: #0a0a0f;
-      --text-light: #f9f9f9;
-      --glass: rgba(255, 255, 255, 0.1);
+      --bg-dark: #050510;
+      --text-light: #f5f5f5;
+      --glass: rgba(255, 255, 255, 0.08);
     }
 
     [data-theme="light"] {
       --bg-dark: #f9f9f9;
-      --text-light: #222;
-      --glass: rgba(255, 255, 255, 0.7);
+      --text-light: #1b1b1b;
+      --glass: rgba(255, 255, 255, 0.6);
     }
 
     * {
@@ -35,8 +34,25 @@
       background: var(--bg-dark);
       color: var(--text-light);
       overflow-x: hidden;
+      position: relative;
     }
 
+    /* Cursor Glow */
+    .cursor-glow {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, var(--primary), transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      opacity: 0.4;
+      transition: transform 0.1s ease-out;
+      z-index: 9999;
+    }
+
+    /* Header */
     header {
       height: 100vh;
       display: flex;
@@ -49,37 +65,50 @@
     }
 
     header h1 {
-      font-size: 3.2rem;
-      text-shadow: 0 0 15px var(--primary);
+      font-size: 3.5rem;
+      text-shadow: 0 0 25px var(--primary);
       margin-bottom: 15px;
     }
 
     header p {
       font-size: 1.2rem;
       opacity: 0.9;
-    }
-
-    #typing {
       color: var(--secondary);
       font-weight: 600;
+      letter-spacing: 1px;
     }
 
-    /* Floating lights background */
+    /* Parallax layers */
+    .parallax {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle at center, rgba(0,224,255,0.05), transparent 70%),
+                  radial-gradient(circle at bottom right, rgba(255,0,200,0.05), transparent 70%);
+      transform: translateZ(0);
+      z-index: -1;
+    }
+
+    /* Floating lights */
     .light {
       position: absolute;
       border-radius: 50%;
       background: radial-gradient(var(--primary), transparent);
       opacity: 0.15;
       animation: float 10s infinite ease-in-out alternate;
+      filter: blur(10px);
     }
 
     @keyframes float {
       from { transform: translateY(0); }
-      to { transform: translateY(-50px); }
+      to { transform: translateY(-60px); }
     }
 
+    /* Sections */
     section {
-      padding: 80px 20px;
+      padding: 90px 20px;
       max-width: 1000px;
       margin: auto;
       text-align: center;
@@ -87,85 +116,89 @@
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--primary);
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px var(--primary);
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px var(--primary);
     }
 
     .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
     }
 
     .card {
       background: var(--glass);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 12px;
       padding: 25px;
       width: 260px;
       transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 20px var(--primary);
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 25px var(--primary);
     }
 
     footer {
-      padding: 30px;
-      background: var(--glass);
+      padding: 40px;
       text-align: center;
-      font-size: 0.9rem;
-    }
-
-    /* Dark/Light Toggle */
-    #theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
       background: var(--glass);
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      cursor: pointer;
-      color: var(--text-light);
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-    }
-
-    #theme-toggle:hover {
-      box-shadow: 0 0 10px var(--secondary);
+      font-size: 0.9rem;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     /* Scroll animation */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
-      transition: all 0.8s ease;
+      transition: all 1s ease;
     }
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
 
+    /* Theme toggle */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      background: var(--glass);
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 1.3rem;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+    #theme-toggle:hover {
+      box-shadow: 0 0 10px var(--secondary);
+    }
+
     @media (max-width: 768px) {
-      header h1 { font-size: 2.3rem; }
+      header h1 { font-size: 2.5rem; }
       .card { width: 90%; }
     }
   </style>
 </head>
 <body>
 
+  <div class="cursor-glow"></div>
   <button id="theme-toggle" title="Toggle mode">🌙</button>
 
   <header>
-    <div class="light" style="width:200px;height:200px;top:10%;left:15%;"></div>
-    <div class="light" style="width:300px;height:300px;bottom:10%;right:10%;animation-delay:2s;"></div>
+    <div class="parallax" id="parallax"></div>
+    <div class="light" style="width:250px;height:250px;top:10%;left:10%;"></div>
+    <div class="light" style="width:350px;height:350px;bottom:5%;right:5%;animation-delay:3s;"></div>
 
     <h1>Wiky Kobandaha</h1>
     <p id="typing"></p>
@@ -174,25 +207,26 @@
   <section id="about" class="reveal">
     <h2>Tentang Aku</h2>
     <p>
-      Halo! Saya <strong>Wiky Kobandaha</strong>, seorang mahasiswa Sistem Informasi dari Universitas Terbuka yang berfokus pada teknologi digital, desain UI/UX, dan pengembangan web interaktif. Saya suka mengeksplorasi ide baru dan mengubahnya menjadi pengalaman digital yang bermanfaat dan menarik.
+      Halo! Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka.  
+      Saya menyukai desain digital, pengembangan web, dan eksperimen interaktif yang menggabungkan estetika serta teknologi modern.
     </p>
   </section>
 
   <section id="skills" class="reveal">
     <h2>Keahlian</h2>
     <div class="card-container">
-      <div class="card"><h3>Frontend Development</h3><p>HTML, CSS, JavaScript, Animasi Web</p></div>
-      <div class="card"><h3>UI/UX Design</h3><p>Desain antarmuka modern dan pengalaman pengguna intuitif</p></div>
-      <div class="card"><h3>Creative Content</h3><p>Pembuatan konten dan branding digital</p></div>
+      <div class="card"><h3>Frontend Developer</h3><p>HTML, CSS, JS, animasi web interaktif</p></div>
+      <div class="card"><h3>UI/UX Designer</h3><p>Desain antarmuka futuristik dan pengalaman pengguna</p></div>
+      <div class="card"><h3>Creative Technologist</h3><p>Menggabungkan teknologi & seni digital</p></div>
     </div>
   </section>
 
   <section id="projects" class="reveal">
     <h2>Proyek</h2>
     <div class="card-container">
-      <div class="card"><h3>Portofolio Interaktif</h3><p>Website pribadi dengan efek neon dan animasi.</p></div>
+      <div class="card"><h3>Portofolio Cinematic</h3><p>Website pribadi dengan efek neon, parallax, dan kursor glow.</p></div>
       <div class="card"><h3>Desa Digital</h3><p>Partisipasi dalam digitalisasi pelayanan publik di Motabang.</p></div>
-      <div class="card"><h3>Eksperimen Teknologi</h3><p>Proyek mini eksplorasi interaktif dan visualisasi data.</p></div>
+      <div class="card"><h3>Eksperimen Visual</h3><p>Membuat interaksi animasi dan visual efek di web modern.</p></div>
     </div>
   </section>
 
@@ -204,7 +238,7 @@
   </section>
 
   <footer>
-    © 2026 Wiky Kobandaha — Dibuat dengan 💙 dan efek neon futuristik.
+    © 2026 Wiky Kobandaha
   </footer>
 
   <script>
@@ -247,14 +281,29 @@
     // Theme toggle
     const toggleBtn = document.getElementById("theme-toggle");
     toggleBtn.addEventListener("click", () => {
-      const currentTheme = document.body.getAttribute("data-theme");
-      if (currentTheme === "light") {
+      const theme = document.body.getAttribute("data-theme");
+      if (theme === "light") {
         document.body.removeAttribute("data-theme");
         toggleBtn.textContent = "🌙";
       } else {
         document.body.setAttribute("data-theme", "light");
         toggleBtn.textContent = "☀️";
       }
+    });
+
+    // Parallax movement
+    const parallax = document.getElementById("parallax");
+    document.addEventListener("mousemove", (e) => {
+      const x = (window.innerWidth / 2 - e.pageX) / 40;
+      const y = (window.innerHeight / 2 - e.pageY) / 40;
+      parallax.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+    });
+
+    // Cursor glow follow
+    const glow = document.querySelector(".cursor-glow");
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.pageX + "px";
+      glow.style.top = e.pageY + "px";
     });
   </script>
 </body>
