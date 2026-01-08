@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wiky Kobandaha | Galaxy Portfolio</title>
+  <title>Wiky Kobandaha | Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -34,10 +34,9 @@
       background: var(--bg-dark);
       color: var(--text-light);
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* Galaxy Background */
+    /* Galaxy background */
     canvas#stars {
       position: fixed;
       top: 0;
@@ -49,21 +48,62 @@
                   radial-gradient(circle at 80% 80%, rgba(255,0,200,0.05), transparent 70%);
     }
 
-    /* Cursor Glow */
-    .cursor-glow {
+    /* Navbar */
+    nav {
       position: fixed;
-      width: 70px;
-      height: 70px;
-      background: radial-gradient(circle, var(--primary), transparent 60%);
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: screen;
-      opacity: 0.25;
-      transition: transform 0.2s ease;
-      z-index: 999;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      backdrop-filter: blur(10px);
+      background: var(--glass);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 100;
     }
 
+    nav h1 {
+      font-weight: 600;
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary);
+      text-shadow: 0 0 10px var(--secondary);
+    }
+
+    #theme-toggle {
+      background: var(--glass);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+      box-shadow: 0 0 10px var(--secondary);
+    }
+
+    /* Header Section */
     header {
       height: 100vh;
       display: flex;
@@ -71,22 +111,22 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
+      padding: 0 20px;
     }
 
-    header h1 {
-      font-size: 3.5rem;
-      text-shadow: 0 0 25px var(--primary);
-      margin-bottom: 15px;
+    header h2 {
+      font-size: 3rem;
+      text-shadow: 0 0 20px var(--primary);
+      margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: var(--secondary);
       font-weight: 600;
-      letter-spacing: 1px;
     }
 
+    /* Sections */
     section {
       padding: 90px 20px;
       max-width: 1000px;
@@ -96,10 +136,14 @@
     }
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: var(--primary);
-      margin-bottom: 25px;
-      text-shadow: 0 0 15px var(--primary);
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px var(--primary);
+    }
+
+    p {
+      line-height: 1.6;
     }
 
     .card-container {
@@ -107,6 +151,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
+      margin-top: 20px;
     }
 
     .card {
@@ -144,66 +189,65 @@
       transform: translateY(0);
     }
 
-    /* Theme Toggle */
-    #theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 45px;
-      height: 45px;
-      border: none;
-      border-radius: 50%;
-      background: var(--glass);
-      color: var(--text-light);
-      cursor: pointer;
-      font-size: 1.3rem;
-      z-index: 10;
-      transition: all 0.3s ease;
-    }
-    #theme-toggle:hover {
-      box-shadow: 0 0 10px var(--secondary);
-    }
-
+    /* Responsive */
     @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      .card { width: 90%; }
+      nav ul {
+        display: none;
+      }
+
+      header h2 {
+        font-size: 2.2rem;
+      }
+
+      .card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
 
   <canvas id="stars"></canvas>
-  <div class="cursor-glow"></div>
-  <button id="theme-toggle" title="Toggle mode">🌙</button>
+
+  <nav>
+    <h1>Wiky Kobandaha</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" title="Toggle theme">🌙</button>
+  </nav>
 
   <header>
-    <h1>Wiky Kobandaha</h1>
+    <h2>Selamat Datang di Portofolio Saya</h2>
     <p id="typing"></p>
   </header>
 
   <section id="about" class="reveal">
-    <h2>Tentang Aku</h2>
+    <h2>Tentang Saya</h2>
     <p>
-      Halo! Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka.  
-      Saya menyukai desain digital, pengembangan web, dan eksplorasi interaktif yang memadukan estetika dengan teknologi masa depan.
+      Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka yang berfokus pada pengembangan digital, desain interaktif, dan teknologi web modern.  
+      Saya senang menggabungkan kreativitas dan teknologi untuk menciptakan pengalaman digital yang bermakna.
     </p>
   </section>
 
   <section id="skills" class="reveal">
     <h2>Keahlian</h2>
     <div class="card-container">
-      <div class="card"><h3>Frontend Developer</h3><p>HTML, CSS, JS, animasi web interaktif</p></div>
-      <div class="card"><h3>UI/UX Designer</h3><p>Desain antarmuka futuristik dan pengalaman pengguna</p></div>
-      <div class="card"><h3>Creative Technologist</h3><p>Menggabungkan teknologi & seni digital</p></div>
+      <div class="card"><h3>Frontend Developer</h3><p>HTML, CSS, JavaScript, animasi web modern</p></div>
+      <div class="card"><h3>UI/UX Design</h3><p>Desain antarmuka futuristik dan pengalaman pengguna</p></div>
+      <div class="card"><h3>Creative Technologist</h3><p>Menggabungkan seni, teknologi, dan interaksi digital</p></div>
     </div>
   </section>
 
   <section id="projects" class="reveal">
     <h2>Proyek</h2>
     <div class="card-container">
-      <div class="card"><h3>Portofolio Galaxy</h3><p>Website pribadi dengan efek neon, bintang, dan animasi halus.</p></div>
-      <div class="card"><h3>Desa Digital</h3><p>Partisipasi dalam digitalisasi pelayanan publik di Motabang.</p></div>
-      <div class="card"><h3>Eksperimen Visual</h3><p>Membuat animasi dan efek web sinematik modern.</p></div>
+      <div class="card"><h3>Portofolio Galaxy</h3><p>Website pribadi dengan efek neon & animasi elegan.</p></div>
+      <div class="card"><h3>Desa Digital</h3><p>Partisipasi dalam digitalisasi pelayanan publik Motabang.</p></div>
+      <div class="card"><h3>Eksperimen Visual</h3><p>Mengembangkan efek visual interaktif berbasis web.</p></div>
     </div>
   </section>
 
@@ -215,11 +259,11 @@
   </section>
 
   <footer>
-    © 2026 Wiky Kobandaha — Portofolio Galaxy Edition 🚀
+    © 2026 Wiky Kobandaha
   </footer>
 
   <script>
-    // Typing Effect
+    // Typing effect
     const typingText = ["Mahasiswa Sistem Informasi", "Web Developer", "UI/UX Enthusiast", "Digital Creator"];
     let count = 0, index = 0;
     const typingElement = document.getElementById("typing");
@@ -247,15 +291,15 @@
 
     document.addEventListener("DOMContentLoaded", type);
 
-    // Scroll Reveal
+    // Scroll reveal animation
     window.addEventListener("scroll", () => {
-      document.querySelectorAll(".reveal").forEach(el => {
+      document.querySelectorAll(".reveal").forEach((el) => {
         const top = el.getBoundingClientRect().top;
         if (top < window.innerHeight - 100) el.classList.add("active");
       });
     });
 
-    // Theme Toggle
+    // Theme toggle
     const toggleBtn = document.getElementById("theme-toggle");
     toggleBtn.addEventListener("click", () => {
       const theme = document.body.getAttribute("data-theme");
@@ -268,14 +312,7 @@
       }
     });
 
-    // Cursor Glow
-    const glow = document.querySelector(".cursor-glow");
-    document.addEventListener("mousemove", (e) => {
-      glow.style.left = e.pageX + "px";
-      glow.style.top = e.pageY + "px";
-    });
-
-    // Galaxy Star Background
+    // Galaxy stars background
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     let stars = [];
