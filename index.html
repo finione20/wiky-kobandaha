@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="1n0ANnw3j-Huq2OFhcW0m56EQPAgR2EXDMztLKEFK20" />
   <title>Wiky Kobandaha | Portfolio</title>
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="1n0ANnw3j-Huq2OFhcW0m56EQPAgR2EXDMztLKEFK20" />
 
   <!-- SEO & Metadata -->
   <meta name="description" content="Portofolio resmi Wiky Kobandaha — Web Developer & UI/UX Enthusiast.">
@@ -26,12 +28,12 @@
     "url": "https://finione20.github.io/wiky-kobandaha/",
     "sameAs": [
       "https://github.com/finione20",
-      "https://linkedin.com/in/wiky-kobandaha"
+      "https://linkedin.com/in/wiky-kobandaha",
+      "https://www.facebook.com/wiky.kobandaha.52"
     ]
   }
   </script>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -42,214 +44,38 @@
       --text-light: #f5f5f5;
       --glass: rgba(255, 255, 255, 0.08);
     }
-
     [data-theme="light"] {
       --bg-dark: #f9f9f9;
       --text-light: #1b1b1b;
       --glass: rgba(255, 255, 255, 0.6);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      overflow-x: hidden;
-    }
-
-    canvas#stars {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: radial-gradient(circle at 20% 20%, rgba(0,224,255,0.05), transparent 70%),
-                  radial-gradient(circle at 80% 80%, rgba(255,0,200,0.05), transparent 70%);
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      backdrop-filter: blur(10px);
-      background: var(--glass);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 100;
-    }
-
-    nav h1 {
-      font-weight: 600;
-      color: var(--primary);
-      text-shadow: 0 0 10px var(--primary);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: var(--secondary);
-      text-shadow: 0 0 10px var(--secondary);
-    }
-
-    #theme-toggle {
-      background: var(--glass);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      color: var(--text-light);
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    #theme-toggle:hover {
-      box-shadow: 0 0 10px var(--secondary);
-    }
-
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    header h2 {
-      font-size: 3rem;
-      text-shadow: 0 0 20px var(--primary);
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: var(--secondary);
-      font-weight: 600;
-    }
-
-    section {
-      padding: 90px 20px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-      position: relative;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px var(--primary);
-    }
-
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 25px;
-      width: 260px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 25px var(--primary);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    input, textarea {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-      font-size: 1rem;
-      background: var(--glass);
-      color: var(--text-light);
-    }
-
-    button {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    button:hover {
-      background: var(--secondary);
-      box-shadow: 0 0 15px var(--secondary);
-    }
-
-    footer {
-      padding: 40px;
-      text-align: center;
-      background: var(--glass);
-      font-size: 0.9rem;
-      margin-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      header h2 { font-size: 2.2rem; }
-      .card { width: 90%; }
-    }
+    * {margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;scroll-behavior:smooth;}
+    body {background:var(--bg-dark);color:var(--text-light);overflow-x:hidden;}
+    canvas#stars {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,224,255,0.05),transparent 70%),radial-gradient(circle at 80% 80%,rgba(255,0,200,0.05),transparent 70%);}
+    nav {position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;backdrop-filter:blur(10px);background:var(--glass);border-bottom:1px solid rgba(255,255,255,0.1);z-index:100;}
+    nav h1 {font-weight:600;color:var(--primary);text-shadow:0 0 10px var(--primary);}
+    nav ul {list-style:none;display:flex;gap:25px;}
+    nav ul li a {text-decoration:none;color:var(--text-light);font-weight:500;transition:color 0.3s;}
+    nav ul li a:hover {color:var(--secondary);text-shadow:0 0 10px var(--secondary);}
+    #theme-toggle {background:var(--glass);border:none;border-radius:50%;width:40px;height:40px;color:var(--text-light);cursor:pointer;font-size:1.2rem;transition:all 0.3s;}
+    #theme-toggle:hover {box-shadow:0 0 10px var(--secondary);}
+    header {height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;}
+    header h2 {font-size:3rem;text-shadow:0 0 20px var(--primary);margin-bottom:10px;}
+    header p {font-size:1.2rem;color:var(--secondary);font-weight:600;}
+    section {padding:90px 20px;max-width:1000px;margin:auto;text-align:center;}
+    h2 {font-size:2rem;color:var(--primary);margin-bottom:20px;text-shadow:0 0 10px var(--primary);}
+    .card-container {display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin-top:20px;}
+    .card {background:var(--glass);backdrop-filter:blur(10px);border-radius:12px;padding:25px;width:260px;transition:all 0.3s;border:1px solid rgba(255,255,255,0.15);}
+    .card:hover {transform:translateY(-10px) scale(1.03);box-shadow:0 0 25px var(--primary);}
+    button,.btn {background:var(--primary);color:#fff;border:none;padding:12px 25px;border-radius:8px;font-weight:600;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;}
+    button:hover,.btn:hover {background:var(--secondary);box-shadow:0 0 15px var(--secondary);}
+    footer {padding:40px;text-align:center;background:var(--glass);font-size:0.9rem;margin-top:40px;border-top:1px solid rgba(255,255,255,0.1);}
+    .reveal{opacity:0;transform:translateY(40px);transition:all 1s ease;}
+    .reveal.active{opacity:1;transform:translateY(0);}
+    @media (max-width:768px){nav ul{display:none;}header h2{font-size:2.2rem;}.card{width:90%;}}
   </style>
 </head>
 <body>
-
   <canvas id="stars"></canvas>
 
   <nav>
@@ -271,40 +97,50 @@
 
   <section id="about" class="reveal">
     <h2>Tentang Saya</h2>
-    <p>Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka. Saya berfokus pada pengembangan web, UI/UX, dan kreasi digital futuristik.</p>
+    <p>
+      Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka.  
+      Saya fokus pada pengembangan web, UI/UX, dan teknologi digital masa depan.  
+      Kunjungi profil saya di 
+      <a href="https://www.facebook.com/wiky.kobandaha.52" target="_blank" style="color:var(--secondary)">Facebook</a>.
+    </p>
   </section>
 
   <section id="skills" class="reveal">
     <h2>Keahlian</h2>
     <div class="card-container">
       <div class="card"><h3>Frontend Developer</h3><p>HTML, CSS, JavaScript, animasi web modern</p></div>
-      <div class="card"><h3>UI/UX Designer</h3><p>Desain antarmuka & pengalaman pengguna</p></div>
+      <div class="card"><h3>UI/UX Designer</h3><p>Desain antarmuka dan pengalaman pengguna</p></div>
       <div class="card"><h3>Creative Technologist</h3><p>Menggabungkan seni, teknologi, dan interaksi digital</p></div>
     </div>
   </section>
 
   <section id="projects" class="reveal">
-    <h2>Proyek Terbaru</h2>
-    <div id="github-projects" class="card-container"></div>
+    <h2>Proyek</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Desa Digital Motabang</h3>
+        <p>Proyek digitalisasi layanan masyarakat berbasis teknologi.</p>
+        <a href="https://motabang.digitaldesa.id/" target="_blank" class="btn">Kunjungi Situs</a>
+      </div>
+    </div>
   </section>
 
   <section id="resume" class="reveal">
     <h2>Resume</h2>
-    <ul style="list-style:none; line-height:1.8;">
+    <ul style="list-style:none;line-height:1.8;">
       <li><strong>Universitas Terbuka</strong> — Sistem Informasi (2022–Sekarang)</li>
       <li><strong>Desa Digital Motabang</strong> — Asisten Teknologi (2025)</li>
     </ul>
-    <a href="#" class="btn" style="display:inline-block;margin-top:20px;background:var(--primary);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;">📄 Unduh CV</a>
+    <a href="#" class="btn" style="margin-top:20px;">📄 Unduh CV</a>
   </section>
 
   <section id="contact" class="reveal">
-    <h2>Kontak Saya</h2>
-    <form action="https://formsubmit.co/wikykobandaha99@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Nama" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" rows="5" placeholder="Pesan kamu..." required></textarea>
-      <button type="submit">Kirim Pesan</button>
-    </form>
+    <h2>Hubungi Saya</h2>
+    <p>Kamu bisa langsung menghubungi saya lewat WhatsApp:</p>
+    <a href="https://wa.me/628516159092?text=Halo%2C%20Saya..." target="_blank" class="btn">💬 Chat di WhatsApp</a>
+    <p style="margin-top:20px;">Atau kunjungi halaman saya di 
+      <a href="https://www.facebook.com/wiky.kobandaha.52" target="_blank" style="color:var(--secondary)">Facebook</a>.
+    </p>
   </section>
 
   <footer>
@@ -312,106 +148,19 @@
   </footer>
 
   <script>
-    // Typing effect
-    const typingText = ["Mahasiswa Sistem Informasi", "Web Developer", "UI/UX Enthusiast", "Digital Creator"];
-    let count = 0, index = 0;
-    const typingElement = document.getElementById("typing");
-
-    function type() {
-      if (index < typingText[count].length) {
-        typingElement.textContent += typingText[count].charAt(index);
-        index++;
-        setTimeout(type, 100);
-      } else setTimeout(erase, 2000);
-    }
-    function erase() {
-      if (index > 0) {
-        typingElement.textContent = typingText[count].substring(0, index - 1);
-        index--;
-        setTimeout(erase, 50);
-      } else {
-        count = (count + 1) % typingText.length;
-        setTimeout(type, 500);
-      }
-    }
-    document.addEventListener("DOMContentLoaded", type);
-
-    // Scroll animation
-    window.addEventListener("scroll", () => {
-      document.querySelectorAll(".reveal").forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) el.classList.add("active");
-      });
-    });
-
-    // Theme toggle
-    const toggleBtn = document.getElementById("theme-toggle");
-    toggleBtn.addEventListener("click", () => {
-      const theme = document.body.getAttribute("data-theme");
-      if (theme === "light") {
-        document.body.removeAttribute("data-theme");
-        toggleBtn.textContent = "🌙";
-      } else {
-        document.body.setAttribute("data-theme", "light");
-        toggleBtn.textContent = "☀️";
-      }
-    });
-
-    // Galaxy stars
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
-    let stars = [];
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      stars = Array.from({ length: 150 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.2,
-        dx: (Math.random() - 0.5) * 0.3,
-        dy: (Math.random() - 0.5) * 0.3,
-      }));
-    }
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(s => {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = Math.random() > 0.5 ? "rgba(0,224,255,0.8)" : "rgba(255,0,200,0.6)";
-        ctx.fill();
-        s.x += s.dx; s.y += s.dy;
-        if (s.x<0||s.x>canvas.width) s.dx*=-1;
-        if (s.y<0||s.y>canvas.height) s.dy*=-1;
-      });
-      requestAnimationFrame(animateStars);
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas(); animateStars();
-
-    // GitHub project auto-fetch
-    fetch("https://api.github.com/users/finione20/repos")
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("github-projects");
-        data.slice(0, 6).forEach(repo => {
-          container.innerHTML += `
-            <div class="card">
-              <h3>${repo.name}</h3>
-              <p>${repo.description || "Tanpa deskripsi"}</p>
-              <a href="${repo.html_url}" target="_blank" style="color:var(--primary)">Lihat di GitHub</a>
-            </div>`;
-        });
-      });
-  </script>
-
-  <!-- Google Analytics (placeholder) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B41764KDWL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-B41764KDWL');
+    const typingText=["Mahasiswa Sistem Informasi","Web Developer","UI/UX Enthusiast","Digital Creator"];
+    let count=0,index=0;
+    const typingElement=document.getElementById("typing");
+    function type(){if(index<typingText[count].length){typingElement.textContent+=typingText[count].charAt(index);index++;setTimeout(type,100);}else setTimeout(erase,2000);}
+    function erase(){if(index>0){typingElement.textContent=typingText[count].substring(0,index-1);index--;setTimeout(erase,50);}else{count=(count+1)%typingText.length;setTimeout(type,500);}}
+    document.addEventListener("DOMContentLoaded",type);
+    window.addEventListener("scroll",()=>{document.querySelectorAll(".reveal").forEach(el=>{const top=el.getBoundingClientRect().top;if(top<window.innerHeight-100)el.classList.add("active");});});
+    const toggleBtn=document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click",()=>{const theme=document.body.getAttribute("data-theme");if(theme==="light"){document.body.removeAttribute("data-theme");toggleBtn.textContent="🌙";}else{document.body.setAttribute("data-theme","light");toggleBtn.textContent="☀️";}});
+    const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");let stars=[];
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;stars=Array.from({length:150},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3}));}
+    function animateStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=Math.random()>0.5?"rgba(0,224,255,0.8)":"rgba(255,0,200,0.6)";ctx.fill();s.x+=s.dx;s.y+=s.dy;if(s.x<0||s.x>canvas.width)s.dx*=-1;if(s.y<0||s.y>canvas.height)s.dy*=-1;});requestAnimationFrame(animateStars);}
+    window.addEventListener("resize",resizeCanvas);resizeCanvas();animateStars();
   </script>
 </body>
 </html>
-
