@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wiky Kobandaha | Portfolio</title>
 
+  <!-- SEO & Metadata -->
+  <meta name="description" content="Portofolio resmi Wiky Kobandaha — Web Developer & UI/UX Enthusiast.">
+  <meta name="keywords" content="Wiky Kobandaha, Web Developer, UI/UX, Portofolio, Teknologi, Indonesia">
+  <meta name="author" content="Wiky Kobandaha">
+  <meta property="og:title" content="Wiky Kobandaha | Portfolio">
+  <meta property="og:description" content="Portofolio resmi Wiky Kobandaha — Web Developer & UI/UX Enthusiast.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://finione20.github.io/wiky-kobandaha/">
+  <meta property="og:image" content="https://finione20.github.io/wiky-kobandaha/preview.jpg">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Wiky Kobandaha",
+    "jobTitle": "Web Developer & UI/UX Enthusiast",
+    "url": "https://finione20.github.io/wiky-kobandaha/",
+    "sameAs": [
+      "https://github.com/finione20",
+      "https://linkedin.com/in/wiky-kobandaha"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -36,7 +62,6 @@
       overflow-x: hidden;
     }
 
-    /* Galaxy background */
     canvas#stars {
       position: fixed;
       top: 0;
@@ -48,7 +73,6 @@
                   radial-gradient(circle at 80% 80%, rgba(255,0,200,0.05), transparent 70%);
     }
 
-    /* Navbar */
     nav {
       position: fixed;
       top: 0;
@@ -103,7 +127,6 @@
       box-shadow: 0 0 10px var(--secondary);
     }
 
-    /* Header Section */
     header {
       height: 100vh;
       display: flex;
@@ -126,7 +149,6 @@
       font-weight: 600;
     }
 
-    /* Sections */
     section {
       padding: 90px 20px;
       max-width: 1000px;
@@ -140,10 +162,6 @@
       color: var(--primary);
       margin-bottom: 20px;
       text-shadow: 0 0 10px var(--primary);
-    }
-
-    p {
-      line-height: 1.6;
     }
 
     .card-container {
@@ -169,6 +187,40 @@
       box-shadow: 0 0 25px var(--primary);
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+      background: var(--glass);
+      color: var(--text-light);
+    }
+
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background: var(--secondary);
+      box-shadow: 0 0 15px var(--secondary);
+    }
+
     footer {
       padding: 40px;
       text-align: center;
@@ -178,7 +230,6 @@
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Scroll Animation */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -189,19 +240,10 @@
       transform: translateY(0);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-
-      header h2 {
-        font-size: 2.2rem;
-      }
-
-      .card {
-        width: 90%;
-      }
+      nav ul { display: none; }
+      header h2 { font-size: 2.2rem; }
+      .card { width: 90%; }
     }
   </style>
 </head>
@@ -215,9 +257,10 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button id="theme-toggle" title="Toggle theme">🌙</button>
+    <button id="theme-toggle">🌙</button>
   </nav>
 
   <header>
@@ -227,35 +270,40 @@
 
   <section id="about" class="reveal">
     <h2>Tentang Saya</h2>
-    <p>
-      Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka yang berfokus pada pengembangan digital, desain interaktif, dan teknologi web modern.  
-      Saya senang menggabungkan kreativitas dan teknologi untuk menciptakan pengalaman digital yang bermakna.
-    </p>
+    <p>Saya <strong>Wiky Kobandaha</strong>, mahasiswa Sistem Informasi Universitas Terbuka. Saya berfokus pada pengembangan web, UI/UX, dan kreasi digital futuristik.</p>
   </section>
 
   <section id="skills" class="reveal">
     <h2>Keahlian</h2>
     <div class="card-container">
       <div class="card"><h3>Frontend Developer</h3><p>HTML, CSS, JavaScript, animasi web modern</p></div>
-      <div class="card"><h3>UI/UX Design</h3><p>Desain antarmuka futuristik dan pengalaman pengguna</p></div>
+      <div class="card"><h3>UI/UX Designer</h3><p>Desain antarmuka & pengalaman pengguna</p></div>
       <div class="card"><h3>Creative Technologist</h3><p>Menggabungkan seni, teknologi, dan interaksi digital</p></div>
     </div>
   </section>
 
   <section id="projects" class="reveal">
-    <h2>Proyek</h2>
-    <div class="card-container">
-      <div class="card"><h3>Portofolio Galaxy</h3><p>Website pribadi dengan efek neon & animasi elegan.</p></div>
-      <div class="card"><h3>Desa Digital</h3><p>Partisipasi dalam digitalisasi pelayanan publik Motabang.</p></div>
-      <div class="card"><h3>Eksperimen Visual</h3><p>Mengembangkan efek visual interaktif berbasis web.</p></div>
-    </div>
+    <h2>Proyek Terbaru</h2>
+    <div id="github-projects" class="card-container"></div>
+  </section>
+
+  <section id="resume" class="reveal">
+    <h2>Resume</h2>
+    <ul style="list-style:none; line-height:1.8;">
+      <li><strong>Universitas Terbuka</strong> — Sistem Informasi (2022–Sekarang)</li>
+      <li><strong>Desa Digital Motabang</strong> — Asisten Teknologi (2025)</li>
+    </ul>
+    <a href="#" class="btn" style="display:inline-block;margin-top:20px;background:var(--primary);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;">📄 Unduh CV</a>
   </section>
 
   <section id="contact" class="reveal">
-    <h2>Kontak</h2>
-    <p>Email: <a href="mailto:wiky@example.com" style="color:var(--secondary)">wiky@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/finione20" style="color:var(--primary)">github.com/finione20</a></p>
-    <p>LinkedIn: <a href="#" style="color:var(--primary)">linkedin.com/in/wiky-kobandaha</a></p>
+    <h2>Kontak Saya</h2>
+    <form action="https://formsubmit.co/wikykobandaha99@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Nama" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Pesan kamu..." required></textarea>
+      <button type="submit">Kirim Pesan</button>
+    </form>
   </section>
 
   <footer>
@@ -273,11 +321,8 @@
         typingElement.textContent += typingText[count].charAt(index);
         index++;
         setTimeout(type, 100);
-      } else {
-        setTimeout(erase, 2000);
-      }
+      } else setTimeout(erase, 2000);
     }
-
     function erase() {
       if (index > 0) {
         typingElement.textContent = typingText[count].substring(0, index - 1);
@@ -288,12 +333,11 @@
         setTimeout(type, 500);
       }
     }
-
     document.addEventListener("DOMContentLoaded", type);
 
-    // Scroll reveal animation
+    // Scroll animation
     window.addEventListener("scroll", () => {
-      document.querySelectorAll(".reveal").forEach((el) => {
+      document.querySelectorAll(".reveal").forEach(el => {
         const top = el.getBoundingClientRect().top;
         if (top < window.innerHeight - 100) el.classList.add("active");
       });
@@ -312,41 +356,60 @@
       }
     });
 
-    // Galaxy stars background
+    // Galaxy stars
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     let stars = [];
-
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       stars = Array.from({ length: 150 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 1.2,
+        r: Math.random() * 1.2,
         dx: (Math.random() - 0.5) * 0.3,
         dy: (Math.random() - 0.5) * 0.3,
       }));
     }
-
     function animateStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach(s => {
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fillStyle = Math.random() > 0.5 ? "rgba(0,224,255,0.8)" : "rgba(255,0,200,0.6)";
         ctx.fill();
-        s.x += s.dx;
-        s.y += s.dy;
-        if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
-        if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+        s.x += s.dx; s.y += s.dy;
+        if (s.x<0||s.x>canvas.width) s.dx*=-1;
+        if (s.y<0||s.y>canvas.height) s.dy*=-1;
       });
       requestAnimationFrame(animateStars);
     }
-
     window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    animateStars();
+    resizeCanvas(); animateStars();
+
+    // GitHub project auto-fetch
+    fetch("https://api.github.com/users/finione20/repos")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("github-projects");
+        data.slice(0, 6).forEach(repo => {
+          container.innerHTML += `
+            <div class="card">
+              <h3>${repo.name}</h3>
+              <p>${repo.description || "Tanpa deskripsi"}</p>
+              <a href="${repo.html_url}" target="_blank" style="color:var(--primary)">Lihat di GitHub</a>
+            </div>`;
+        });
+      });
+  </script>
+
+  <!-- Google Analytics (placeholder) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B41764KDWL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B41764KDWL');
   </script>
 </body>
 </html>
